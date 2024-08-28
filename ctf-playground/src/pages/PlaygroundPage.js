@@ -3,9 +3,15 @@ import ChallengeCard from '../components/ChallengeCard';
 
 const PlaygroundPage = () => {
     const categories = [
-        { title: 'Cryptography', description: 'Test your cryptography skills', path: '/challenge/crypto/1' },
-        { title: 'SQL Injection', description: 'Learn about SQL vulnerabilities', path: '/challenge/sql/1' },
-        // Add more categories as needed
+        { title: 'Welcome', description: 'Challenges that test basic cybersecurity skills.', path: '/challenge/general-skills/1' },
+        { title: 'Swap', description: 'Decode and understand the underlying code.', path: '/challenge/reverse-engineering/1' },
+        { title: 'File Manager', description: 'Find vulnerabilities in binary applications.', path: '/challenge/binary-exploitation/1' },
+        { title: 'Where\'s Waldo?', description: 'Analyze digital evidence to solve the challenge.', path: '/challenge/forensics/1' },
+        { title: 'Interwebs', description: 'Identify and exploit vulnerabilities in web applications.', path: '/challenge/web-exploitation/1' },
+        { title: 'You\'ve been hacked!', description: 'Exploit systems via command injection vulnerabilities.', path: '/challenge/command-injection/1' },
+        { title: 'Spot the Difference!', description: 'Find hidden information within files.', path: '/challenge/steganography/1' },
+        { title: 'Scrambled Eggs', description: 'Test your cryptography skills', path: '/challenge/crypto/1' },
+        { title: 'Syringe', description: 'Learn about SQL vulnerabilities', path: '/challenge/sql/1' }
     ];
 
     return (
