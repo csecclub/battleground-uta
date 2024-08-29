@@ -3,9 +3,13 @@ import { useParams } from 'react-router-dom';
 import SyringeChallenge from '../components/challenges/SyringeChallenge'; // Import the new challenge
 import SwapChallenge from '../components/challenges/SwapChallenge'; // Import the new challenge
 import FileManagerChallenge from '../components/challenges/FileManagerChallenge'; // Import the new challenge
-import ForensicsChallenge from '../components/challenges/ForensicsChallenge';
+import StegChallenge from '../components/challenges/StegChallenge';
 import CryptoChallenge from '../components/challenges/CryptoChallenge';
 import WelcomeChallenge from '../components/challenges/WelcomeChallenge';
+import WebExploitationChallenge from '../components/challenges/WebExploitationChallenge';
+import CommandInjectionChallenge from '../components/challenges/CommandInjectionChallenge';
+import SpotDifferenceChallenge from '../components/challenges/SpotDifferenceChallenge';
+
 
 const ChallengePage = () => {
     const { category, id } = useParams();
@@ -21,14 +25,23 @@ const ChallengePage = () => {
         if (category === 'binary-exploitation' && id === '1') {
             return <FileManagerChallenge />;
         }
-        if (category === 'forensics' && id === '1') {
-            return <ForensicsChallenge />;
+        if (category === 'steganography' && id === '1') {
+            return <StegChallenge />;
         }
         if (category === 'crypto' && id === '1') {
             return <CryptoChallenge />;
         }
         if (category === 'general-skills' && id === '1') {
             return <WelcomeChallenge />;
+        }
+        if (category === 'web-exploitation' && id === '1') {
+            return <WebExploitationChallenge />;
+        }
+        if (category === 'command-injection' && id === '1') {
+            return <CommandInjectionChallenge />;
+        }
+        if (category === 'forensics' && id === '1') {
+            return <SpotDifferenceChallenge />;
         }
         // Add more conditional rendering for other categories and challenges as needed
         return <p>Challenge not found.</p>;

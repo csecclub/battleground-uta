@@ -29,7 +29,7 @@ const ForensicsChallenge = () => {
         <div className="container mx-auto p-5">
             <h1 className="text-2xl font-bold mb-4">Where's Waldo?: Forensics Challenge</h1>
             <p className="mb-4">
-                In this challenge, you need to analyze the provided evidence file to uncover hidden information. Download the evidence file and use forensic tools to find the clues.
+                In this challenge, you need to analyze the provided evidence file to uncover hidden information. Download the evidence file and use steganography tools to find the clues.
             </p>
             <button onClick={downloadEvidence} className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600 mb-4">
                 Download Evidence
@@ -47,4 +47,4 @@ const ForensicsChallenge = () => {
     );
 };
 
-export default ForensicsChallenge;
+export default StegChallenge;

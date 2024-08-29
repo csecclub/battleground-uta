@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interwebs Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .hidden-content {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+        .visible-content {
+            display: block;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Interwebs Challenge!</h1>
+    <p id="message">You need to be an admin to view the secret content.</p>
+    <div id="hiddenContent" class="hidden-content">
+        <p>Congratulations! You have found the secret content.</p>
+    </div>
+    <script>
+        // Check if the user is an admin based on cookie
+        function checkCookie() {
+            const cookies = document.cookie.split(';').reduce((acc, cookie) => {
+                const [key, value] = cookie.split('=').map(c => c.trim());
+                acc[key] = value;
+                return acc;
+            }, {});
+
+            if (cookies.user === 'admin') {
+                document.getElementById('message').className = 'hidden-content';
+                document.getElementById('hiddenContent').className = 'visible-content';
+            }
+        }
+
+        checkCookie();
+    </script>
+</body>
+</html>
