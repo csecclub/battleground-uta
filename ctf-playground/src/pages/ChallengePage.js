@@ -4,6 +4,7 @@ import SyringeChallenge from '../components/challenges/SyringeChallenge'; // Imp
 import SwapChallenge from '../components/challenges/SwapChallenge'; // Import the new challenge
 import FileManagerChallenge from '../components/challenges/FileManagerChallenge'; // Import the new challenge
 import StegChallenge from '../components/challenges/StegChallenge';
+import HiddenBit from '../components/challenges/HiddenBit';
 import CryptoChallenge from '../components/challenges/CryptoChallenge';
 import WelcomeChallenge from '../components/challenges/WelcomeChallenge';
 import WebExploitationChallenge from '../components/challenges/WebExploitationChallenge';
@@ -27,6 +28,9 @@ const ChallengePage = () => {
         }
         if (category === 'steganography' && id === '1') {
             return <StegChallenge />;
+        } 
+        else if (category === 'steganography' && id === '2') {
+            return <HiddenBit />;
         }
         if (category === 'crypto' && id === '1') {
             return <CryptoChallenge />;
