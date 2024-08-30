@@ -11,6 +11,7 @@ import WebExploitationChallenge from '../components/challenges/WebExploitationCh
 import CommandInjectionChallenge from '../components/challenges/CommandInjectionChallenge';
 import SpotDifferenceChallenge from '../components/challenges/SpotDifferenceChallenge';
 import WheresMyFriend from '../components/challenges/WheresMyFriend';
+import AirportCriminal from '../components/challenges/AirportCriminal';
 
 
 const ChallengePage = () => {
@@ -50,6 +51,9 @@ const ChallengePage = () => {
         }
         if (category === 'osint' && id === '1') {
             return <WheresMyFriend />;
+        }
+        else if (category === 'osint' && id === '2') {
+            return <AirportCriminal />;
         }
         // Add more conditional rendering for other categories and challenges as needed
         return <p>Challenge not found.</p>;
