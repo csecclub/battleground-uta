@@ -21,7 +21,9 @@ const PlaygroundPage = () => {
         // Cryptography
         { title: 'Scrambled Eggs', description: 'Test your cryptography skills', path: '/challenge/crypto/1' },
         // SQL injection
-        { title: 'Syringe', description: 'Learn about SQL vulnerabilities', path: '/challenge/sql/1' }
+        { title: 'Syringe', description: 'Learn about SQL vulnerabilities', path: '/challenge/sql/1' },
+        // OSINT
+        { title: 'Where is my friend?', description: 'My friend sent me a photo of him on vacation, can you help me find where he is?', path: '/challenge/osint/1'}
     ];
 
     return (

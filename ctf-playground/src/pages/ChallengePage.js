@@ -10,6 +10,7 @@ import WelcomeChallenge from '../components/challenges/WelcomeChallenge';
 import WebExploitationChallenge from '../components/challenges/WebExploitationChallenge';
 import CommandInjectionChallenge from '../components/challenges/CommandInjectionChallenge';
 import SpotDifferenceChallenge from '../components/challenges/SpotDifferenceChallenge';
+import WheresMyFriend from '../components/challenges/WheresMyFriend';
 
 
 const ChallengePage = () => {
@@ -46,6 +47,9 @@ const ChallengePage = () => {
         }
         if (category === 'forensics' && id === '1') {
             return <SpotDifferenceChallenge />;
+        }
+        if (category === 'osint' && id === '1') {
+            return <WheresMyFriend />;
         }
         // Add more conditional rendering for other categories and challenges as needed
         return <p>Challenge not found.</p>;
