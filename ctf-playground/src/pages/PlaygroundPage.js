@@ -20,7 +20,9 @@ const PlaygroundPage = () => {
         { title: 'Spot the Difference!', description: 'Find hidden information within files.', path: '/challenge/forensics/1' },
         // Cryptography
         { title: 'Scrambled Eggs', description: 'Test your cryptography skills', path: '/challenge/crypto/1' },
-        { title: 'RSA school keys', description: 'These numbers from the school library are raising eyebrows.', path: '/challenge/crypto/2' },
+        { title: 'Hex Protect', description: 'looks like my friend thought using multiple crypto algorithms meant he\'d be safer!', path: '/challenge/crypto/2' },
+        { title: 'RSA Office keys', description: 'These three numbers from my office are suspicious.', path: '/challenge/crypto/3' },
+        { title: 'RSA School keys', description: 'These numbers from the school library are raising eyebrows.', path: '/challenge/crypto/4' },
         // SQL injection
         { title: 'Syringe', description: 'Learn about SQL vulnerabilities', path: '/challenge/sql/1' },
         // OSINT
