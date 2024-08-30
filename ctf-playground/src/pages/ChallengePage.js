@@ -4,11 +4,14 @@ import SyringeChallenge from '../components/challenges/SyringeChallenge'; // Imp
 import SwapChallenge from '../components/challenges/SwapChallenge'; // Import the new challenge
 import FileManagerChallenge from '../components/challenges/FileManagerChallenge'; // Import the new challenge
 import StegChallenge from '../components/challenges/StegChallenge';
+import HiddenBit from '../components/challenges/HiddenBit';
 import CryptoChallenge from '../components/challenges/CryptoChallenge';
 import WelcomeChallenge from '../components/challenges/WelcomeChallenge';
 import WebExploitationChallenge from '../components/challenges/WebExploitationChallenge';
 import CommandInjectionChallenge from '../components/challenges/CommandInjectionChallenge';
 import SpotDifferenceChallenge from '../components/challenges/SpotDifferenceChallenge';
+import WheresMyFriend from '../components/challenges/WheresMyFriend';
+import AirportCriminal from '../components/challenges/AirportCriminal';
 
 
 const ChallengePage = () => {
@@ -27,6 +30,9 @@ const ChallengePage = () => {
         }
         if (category === 'steganography' && id === '1') {
             return <StegChallenge />;
+        } 
+        else if (category === 'steganography' && id === '2') {
+            return <HiddenBit />;
         }
         if (category === 'crypto' && id === '1') {
             return <CryptoChallenge />;
@@ -42,6 +48,12 @@ const ChallengePage = () => {
         }
         if (category === 'forensics' && id === '1') {
             return <SpotDifferenceChallenge />;
+        }
+        if (category === 'osint' && id === '1') {
+            return <WheresMyFriend />;
+        }
+        else if (category === 'osint' && id === '2') {
+            return <AirportCriminal />;
         }
         // Add more conditional rendering for other categories and challenges as needed
         return <p>Challenge not found.</p>;
