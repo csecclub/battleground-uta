@@ -9,13 +9,15 @@ import Footer from './components/Footer';
 function App() {
     return (
         <Router>
-            <div className="App">
+            <div className="flex flex-col min-h-screen">
                 <Navbar />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/playground" element={<PlaygroundPage />} />
-                    <Route path="/challenge/:category/:id" element={<ChallengePage />} />
-                </Routes>
+                <main className="flex-grow">
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/playground" element={<PlaygroundPage />} />
+                        <Route path="/challenge/:category/:id" element={<ChallengePage />} />
+                    </Routes>
+                </main>
                 <Footer />
             </div>
         </Router>
