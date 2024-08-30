@@ -32,7 +32,7 @@ const RSAschoolKeys = () => {
 
     return (
         <div className="container mx-auto p-5">
-            <h1 className="text-2xl font-bold mb-4">RSA School Keys</h1>
+            <h1 className="text-2xl font-bold mb-4">RSA School Keys (HARD)</h1>
             <p className="mb-4">
                 These numbers from the school library are raising eyebrows. 
                 <br></br> 
