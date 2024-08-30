@@ -1,28 +1,47 @@
 import React, { useState } from 'react';
 
-const SwapChallenge = () => {
+const ReverseEngineeringChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Simulate a reverse engineering logic check
-        const expectedAnswer = 'hello'; // This should be the result of some kind of decoding
+        // Check if the input matches the hidden logic
+        const correctAnswer = 'Dvxowv'; // This is the result of some reverse-engineering
 
-        if (input === expectedAnswer) {
-            setMessage('Success! You decoded the underlying logic.');
+        if (input === correctAnswer) {
+            setMessage('Success! You reverse-engineered the code.');
         } else {
-            setMessage('Incorrect. Try decoding the logic again.');
+            setMessage('Incorrect. Try reverse-engineering the logic again.');
         }
     };
 
     const codeSnippet = `# reverse_challenge.py
 
-def swap_letters(input_string):
-    return ''.join([chr(ord(char) + 1) for char in input_string])
+def swap_characters(input_string):
+    swaps = {
+        'a': 'z',
+        'b': 'y',
+        'c': 'x',
+        'd': 'w',
+        'e': 'v'
+    }
+    return ''.join([swaps.get(char, char) for char in input_string])
 
-encoded_message = swap_letters("gdkkn")
+def encode_message(input_string):
+    encoding_map = {
+        'e': '3',
+        'a': '@',
+        's': '$'
+    }
+    swapped_message = swap_characters(input_string)
+    return ''.join([encoding_map.get(char, char) for char in swapped_message])
+
+def hidden_function():
+    return encode_message("Decode")
+
+encoded_message = hidden_function()
 print(f"The encoded message is: {encoded_message}")
 `;
 
@@ -37,9 +56,9 @@ print(f"The encoded message is: {encoded_message}")
 
     return (
         <div className="container mx-auto p-5">
-            <h1 className="text-2xl font-bold mb-4">Swap: Reverse Engineering Challenge</h1>
+            <h1 className="text-2xl font-bold mb-4">Reverse Engineering Challenge</h1>
             <p className="mb-4">
-                In this challenge, you'll need to decode the given code to find the correct answer. Try to understand what the code is doing and figure out the hidden message.
+                In this challenge, you'll need to reverse-engineer the provided code to find the hidden logic and determine the correct answer.
             </p>
             <pre className="bg-gray-100 p-3 rounded mb-4">
                 {codeSnippet}
@@ -49,7 +68,7 @@ print(f"The encoded message is: {encoded_message}")
             </button>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Decoded Message: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter decoded message" />
+                    Hidden Logic Result: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter decoded result" />
                 </label>
                 <button type="submit" className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600">
                     Submit
@@ -60,4 +79,4 @@ print(f"The encoded message is: {encoded_message}")
     );
 };
 
-export default SwapChallenge;
+export default ReverseEngineeringChallenge;

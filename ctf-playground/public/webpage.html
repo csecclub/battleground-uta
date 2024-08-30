@@ -3,47 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interwebs Challenge</title>
+    <title>Pet Paradise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
             text-align: center;
             padding: 20px;
         }
-        .hidden-content {
-            display: none;
+        .admin-message {
             color: green;
             font-weight: bold;
         }
-        .visible-content {
-            display: block;
-            color: red;
-            font-weight: bold;
+        .regular-message {
+            color: blue;
+            font-weight: normal;
+        }
+        .pet-image {
+            width: 200px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Interwebs Challenge!</h1>
-    <p id="message">You need to be an admin to view the secret content.</p>
-    <div id="hiddenContent" class="hidden-content">
-        <p>Congratulations! You have found the secret content.</p>
-    </div>
-    <script>
-        // Check if the user is an admin based on cookie
-        function checkCookie() {
-            const cookies = document.cookie.split(';').reduce((acc, cookie) => {
-                const [key, value] = cookie.split('=').map(c => c.trim());
-                acc[key] = value;
-                return acc;
-            }, {});
+    <h1>Welcome to Pet Paradise!</h1>
+    <div id="message"></div>
+    <img src="/kitten1.png" alt="Cute Kitten" class="pet-image">
 
-            if (cookies.user === 'admin') {
-                document.getElementById('message').className = 'hidden-content';
-                document.getElementById('hiddenContent').className = 'visible-content';
-            }
+    <script>
+        // Check for 'user' cookie
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
         }
 
-        checkCookie();
+        const user = getCookie('user');
+
+        if (user === 'admin') {
+            document.getElementById('message').innerHTML = "<p class='admin-message'>You have admin access! Enjoy exclusive content about rare pets!</p>";
+            // Load admin-exclusive content or modify the page
+            document.body.style.backgroundColor = '#d4edda';
+            document.querySelector('.pet-image').src = "/kitten2.png";
+        } else {
+            document.getElementById('message').innerHTML = "<p class='regular-message'>Explore our collection of cute pets!</p>";
+        }
     </script>
 </body>
 </html>
