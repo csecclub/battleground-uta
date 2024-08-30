@@ -8,7 +8,7 @@ const AirportCriminal = () => {
         e.preventDefault();
 
         // Simulated correct answer
-        const expectedAnswer = 'Struga, North Macedonia';
+        const expectedAnswer = 'ORD';
 
         if (input.trim().toLowerCase() === expectedAnswer.toLowerCase()) {
             setMessage('Congratulations! You solved the challenge.');
@@ -24,6 +24,8 @@ const AirportCriminal = () => {
                 The police found a leaked photo of the man on the run, but they can't quiet narrow down which airport he is in.
                 <br></br>
                 Find out where he is.
+                <br></br>
+                (Airport CODE(only in US): e.g. DFW)
 
             </p>
 
