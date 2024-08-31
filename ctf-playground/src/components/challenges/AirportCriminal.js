@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const AirportCriminal = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('AirportCriminal');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Simulated correct answer
-        const expectedAnswer = 'Struga, North Macedonia';
-
-        if (input.trim().toLowerCase() === expectedAnswer.toLowerCase()) {
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
             setMessage('Congratulations! You solved the challenge.');
         } else {
             setMessage('Incorrect. Please try again.');
@@ -24,6 +22,8 @@ const AirportCriminal = () => {
                 The police found a leaked photo of the man on the run, but they can't quiet narrow down which airport he is in.
                 <br></br>
                 Find out where he is.
+                <br></br>
+                (Airport CODE(only in US): e.g. DFW)
 
             </p>
 

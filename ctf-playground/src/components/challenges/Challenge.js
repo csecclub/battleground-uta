@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const ForensicsChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('Challenge');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Expected hidden message from the analysis of the evidence file
-        const expectedAnswer = "F0und W4ldo!";
-
-        if (input === expectedAnswer) {
-            setMessage('Congratulations! You successfully found Waldo in the evidence.');
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            setMessage('Congratulations! You solved the challenge.');
         } else {
-            setMessage('Incorrect result. Analyze the evidence file carefully and try again.');
+            setMessage('Incorrect. Please try again.');
         }
     };
 

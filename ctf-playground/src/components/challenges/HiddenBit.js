@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const HiddenBit = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('HiddenBit');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Simulated correct answer
-        const expectedAnswer = 'csec_flag{DoYouLikePancakesOrWaffles}';
-
-        if (input.trim().toLowerCase() === expectedAnswer.toLowerCase()) {
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
             setMessage('Congratulations! You solved the challenge.');
         } else {
             setMessage('Incorrect. Please try again.');
