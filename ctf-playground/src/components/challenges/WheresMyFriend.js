@@ -5,7 +5,7 @@ import useCTFQuestion from '../../hooks/useCTFQuestion';
 const WheresMyFriend = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
-    const { question, loading, error } = useCTFQuestion('wheresmyfriend');
+    const { question } = useCTFQuestion('wheresmyfriend');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,10 +15,6 @@ const WheresMyFriend = () => {
             setMessage('Incorrect. Please try again.');
         }
     };
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
-    if (!question) return <div>Question not found</div>;
 
     return (
         <div className="container mx-auto p-5">
