@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const CommandInjectionChallenge = () => {
     const [output, setOutput] = useState([]);
     const [command, setCommand] = useState('');
     const [flagInput, setFlagInput] = useState('');
     const [flagVerified, setFlagVerified] = useState(false);
-    const key = 'c8mdninj3cti0n';
+    const { key } = useCTFQuestion('CommandInjectionChallenge');
 
     const handleCommand = (e) => {
         e.preventDefault();

@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const RSAoffice = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('RSAoffice');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Check if the input matches the hidden logic
-        const correctAnswer = 'Leo_&_Leo_are_pr0ud_0f_y0u!!'; // this one involves a lotta math
-
-        if (input === correctAnswer) {
-            setMessage('Success! You solved the puzzel!');
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            setMessage('Congratulations! You solved the challenge.');
         } else {
-            setMessage('Incorrect. Try reverse-engineering the logic again.');
+            setMessage('Incorrect. Please try again.');
         }
     };
 
