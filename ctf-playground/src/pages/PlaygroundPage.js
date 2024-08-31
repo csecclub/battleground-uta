@@ -20,11 +20,14 @@ const PlaygroundPage = () => {
         { title: 'Spot the Difference!', description: 'Find hidden information within files.', path: '/challenge/forensics/1' },
         // Cryptography
         { title: 'Scrambled Eggs', description: 'Test your cryptography skills', path: '/challenge/crypto/1' },
+        { title: 'Hex Protect', description: 'looks like my friend thought using multiple crypto algorithms meant he\'d be safer!', path: '/challenge/crypto/2' },
+        { title: 'RSA Office keys', description: 'These three numbers from my office are suspicious.', path: '/challenge/crypto/3' },
+        { title: 'RSA School keys', description: 'These numbers from the school library are raising eyebrows.', path: '/challenge/crypto/4' },
         // SQL injection
         { title: 'Syringe', description: 'Learn about SQL vulnerabilities', path: '/challenge/sql/1' },
         // OSINT
-        { title: 'Where is my friend?', description: 'My friend sent me a photo of him on vacation, can you help me find where he is?', path: '/challenge/osint/1'},
-        { title: 'Airport-Criminal', description: 'The police found a leaked photo of the man on the run, but they can\'t quiet narrow down which airport he is in.', path: '/challenge/osint/2'},
+        { title: 'Where is my friend?', description: 'Can you help find my friend?', path: '/challenge/osint/1'},
+        { title: 'Airport-Criminal', description: 'The police found a leaked photo of the man on the run', path: '/challenge/osint/2'},
     ];
 
     return (

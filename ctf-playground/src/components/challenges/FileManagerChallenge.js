@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const FileManagerChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('FileManagerChallenge');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Simulate a logic check for the expected answer
-        const expectedAnswer = '3xploit_$uccess'; // Replace with the actual result of the exploit
-
-        if (input === expectedAnswer) {
-            setMessage('Congratulations! You successfully exploited the binary.');
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            setMessage('Congratulations! You solved the challenge.');
         } else {
-            setMessage('Incorrect result. Please analyze the binary and try again.');
+            setMessage('Incorrect. Please try again.');
         }
     };
 

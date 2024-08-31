@@ -12,6 +12,9 @@ import CommandInjectionChallenge from '../components/challenges/CommandInjection
 import SpotDifferenceChallenge from '../components/challenges/SpotDifferenceChallenge';
 import WheresMyFriend from '../components/challenges/WheresMyFriend';
 import AirportCriminal from '../components/challenges/AirportCriminal';
+import RSAschoolKeys from '../components/challenges/RSAschoolKeys';
+import RSAoffice from '../components/challenges/RSAoffice';
+import HexProtect from '../components/challenges/HexProtect';
 
 
 const ChallengePage = () => {
@@ -36,6 +39,15 @@ const ChallengePage = () => {
         }
         if (category === 'crypto' && id === '1') {
             return <CryptoChallenge />;
+        }
+        else if (category === 'crypto' && id === '2') {
+            return <HexProtect />;
+        }
+        else if (category === 'crypto' && id === '3') {
+            return <RSAoffice />;
+        }
+        else if (category === 'crypto' && id === '4') {
+            return <RSAschoolKeys />;
         }
         if (category === 'general-skills' && id === '1') {
             return <WelcomeChallenge />;

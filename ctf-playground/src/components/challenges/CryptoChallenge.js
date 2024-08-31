@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const CryptoChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('HiddenBit');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Expected decrypted message
-        const expectedAnswer = "Crpt0K1ttY";
-
-        if (input.toLowerCase() === expectedAnswer.toLowerCase()) {
-            setMessage('Congratulations! You successfully decrypted the message.');
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            setMessage('Congratulations! You solved the challenge.');
         } else {
-            setMessage('Incorrect decryption. Please analyze the encrypted message and try again.');
+            setMessage('Incorrect. Please try again.');
         }
     };
 

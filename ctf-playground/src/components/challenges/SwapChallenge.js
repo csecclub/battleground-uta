@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
+import useCTFQuestion from '../../hooks/useCTFQuestion';
 
 const ReverseEngineeringChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
+    const { question } = useCTFQuestion('SwapChallenge');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        // Check if the input matches the hidden logic
-        const correctAnswer = 'Dvxowv'; // This is the result of some reverse-engineering
-
-        if (input === correctAnswer) {
-            setMessage('Success! You reverse-engineered the code.');
+        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            setMessage('Congratulations! You solved the challenge.');
         } else {
-            setMessage('Incorrect. Try reverse-engineering the logic again.');
+            setMessage('Incorrect. Please try again.');
         }
     };
 
