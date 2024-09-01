@@ -18,7 +18,7 @@ const HomePage = () => {
                     to="/login" 
                     className="block mb-4 px-6 py-3 bg-white text-blue-500 font-semibold rounded text-center"
                 >
-                    Login
+                    Log In
                 </Link>
                 <Link 
                     to="/signup" 
