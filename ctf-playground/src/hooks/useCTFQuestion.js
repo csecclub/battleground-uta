@@ -27,7 +27,7 @@ const useCTFQuestion = (questionId) => {
         }
 
         // Check if user has completed this question
-        const progressRef = doc(db, 'user_progress', user.uid);
+        const progressRef = doc(db, 'user', user.uid);
         const progressSnap = await getDoc(progressRef);
 
         if (progressSnap.exists()) {
@@ -76,7 +76,6 @@ const useCTFQuestion = (questionId) => {
       // Update user_scores collection
       const userScoreRef = doc(db, 'users', user.uid);
       await setDoc(userScoreRef, {
-        username: user.displayName || user.email,
         score: (question.points || 0)
       }, { merge: true });
 
