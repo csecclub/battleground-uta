@@ -6,7 +6,7 @@ const CommandInjectionChallenge = () => {
     const [command, setCommand] = useState('');
     const [flagInput, setFlagInput] = useState('');
     const [flagVerified, setFlagVerified] = useState(false);
-    const { key } = useCTFQuestion('CommandInjectionChallenge');
+    const { key, completed, markAsCompleted } = useCTFQuestion('CommandInjectionChallenge');
 
     const handleCommand = (e) => {
         e.preventDefault();
@@ -52,8 +52,19 @@ const CommandInjectionChallenge = () => {
         setCommand('');
     };
 
-    const handleFlagVerification = () => {
+    const handleFlagVerification = async () => {
+        if (!key) {
+            setOutput('Error: Question data is not available. Please try again later.');
+            return;
+        }
+
+        if (completed) {
+            setOutput('You have already completed this question.');
+            return;
+        }
+
         if (flagInput === key) {
+            await markAsCompleted();
             setFlagVerified(true);
         } else {
             setFlagVerified(false);
