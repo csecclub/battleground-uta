@@ -4,7 +4,7 @@ import useCTFQuestion from '../../hooks/useCTFQuestion';
 const HiddenBit = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
-    const { question, loading, error } = useCTFQuestion('HiddenBit');
+    const { question, loading, error, completed, markAsCompleted } = useCTFQuestion('HiddenBit');
 
     useEffect(() => {
         console.log('Question state:', question);
@@ -12,7 +12,7 @@ const HiddenBit = () => {
         console.log('Error state:', error);
     }, [question, loading, error]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('Submitting answer. Question:', question);
         console.log('User input:', input);
@@ -22,8 +22,18 @@ const HiddenBit = () => {
             return;
         }
 
+        if (completed) {
+            setMessage('You have already completed this question.');
+            return;
+        }
+
         if (input.trim().toLowerCase() === question.answer.toLowerCase()) {
-            setMessage('Congratulations! You solved the challenge.');
+            try {
+                await markAsCompleted();
+                setMessage(`Congratulations! You solved the challenge and earned ${question.points} points.`);
+            } catch (err) {
+                setMessage('Error updating progress. Please try again.');
+            }
         } else {
             setMessage('Incorrect. Please try again.');
         }

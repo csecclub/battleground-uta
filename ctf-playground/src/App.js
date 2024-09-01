@@ -5,6 +5,7 @@ import PlaygroundPage from './pages/PlaygroundPage';
 import ChallengePage from './pages/ChallengePage';
 import LoginPage from './pages/Login';
 import SignUpPage from './pages/SignUp';
+import Leaderboard from './pages/Leaderboard';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import { auth } from "./firebaseconfig";
@@ -45,6 +46,7 @@ function App() {
                         />
                         <Route path="/login" element={<LoginPage />} />
                         <Route path="/signup" element={<SignUpPage />} />
+                        <Route path="/leaderboard" element={<Leaderboard />} />
                     </Routes>
                 </main>
                 <Footer />

@@ -19,7 +19,7 @@ const SignUp = () => {
         email: user.email,
         createdAt: serverTimestamp(),
         score: 0,
-        completedChallenges: []
+        completedQuestions: []
       });
 
       // Redirect to home page or dashboard
