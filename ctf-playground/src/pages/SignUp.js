@@ -6,6 +6,7 @@ import { doc, setDoc } from "firebase/firestore";
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   const [error, setError] = useState(null);
 
   const handleSignUp = async (e) => {
@@ -17,6 +18,7 @@ const SignUp = () => {
       // Create a user document in Firestore
       await setDoc(doc(db, 'users', user.uid), {
         email: user.email,
+        username: username,
         createdAt: serverTimestamp(),
         score: 0,
         completedQuestions: []
@@ -30,6 +32,13 @@ const SignUp = () => {
 
   return (
     <form onSubmit={handleSignUp}>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Username"
+        required
+      />
       <input
         type="email"
         value={email}
