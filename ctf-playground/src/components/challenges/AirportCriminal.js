@@ -6,6 +6,7 @@ const AirportCriminal = () => {
     const [message, setMessage] = useState('');
     const { question, completed, markAsCompleted } = useCTFQuestion('AirportCriminal');
 
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();

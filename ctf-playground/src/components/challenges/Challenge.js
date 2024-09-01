@@ -4,12 +4,26 @@ import useCTFQuestion from '../../hooks/useCTFQuestion';
 const ForensicsChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
-    const { question } = useCTFQuestion('Challenge');
+    const { question, loading, error, completed, markAsCompleted } = useCTFQuestion('Challenge');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
-            setMessage('Congratulations! You solved the challenge.');
+    const handleSubmit = async (e) => {
+        if (!question) {
+            setMessage('Error: Question data is not available. Please try again later.');
+            return;
+        }
+
+        if (completed) {
+            setMessage('You have already completed this question.');
+            return;
+        }
+
+        if (input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            try {
+                await markAsCompleted();
+                setMessage(`Congratulations! You solved the challenge and earned ${question.points} points.`);
+            } catch (err) {
+                setMessage('Error updating progress. Please try again.');
+            }
         } else {
             setMessage('Incorrect. Please try again.');
         }

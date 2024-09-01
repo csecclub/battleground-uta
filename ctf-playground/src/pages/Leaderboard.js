@@ -1,5 +1,5 @@
 import React from 'react';
-import useUserScores from '../hooks/useUsers';
+import useUserScores from '../hooks/useUserScores';
 
 const Leaderboard = () => {
   const { scores, loading, error } = useUserScores(10); // Fetch top 10 scores

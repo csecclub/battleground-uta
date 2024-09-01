@@ -4,12 +4,27 @@ import useCTFQuestion from '../../hooks/useCTFQuestion';
 const HexProtect = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
-    const { question } = useCTFQuestion('HexProtect');
+    const { question, completed, markAsCompleted } = useCTFQuestion('HexProtect');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (question && input.trim().toLowerCase() === question.answer.toLowerCase()) {
-            setMessage('Congratulations! You solved the challenge.');
+        if (!question) {
+            setMessage('Error: Question data is not available. Please try again later.');
+            return;
+        }
+
+        if (completed) {
+            setMessage('You have already completed this question.');
+            return;
+        }
+
+        if (input.trim().toLowerCase() === question.answer.toLowerCase()) {
+            try {
+                await markAsCompleted();
+                setMessage(`Congratulations! You solved the challenge and earned ${question.points} points.`);
+            } catch (err) {
+                setMessage('Error updating progress. Please try again.');
+            }
         } else {
             setMessage('Incorrect. Please try again.');
         }
