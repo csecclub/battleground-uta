@@ -6,7 +6,7 @@ const HomePage = () => {
         <div className="h-screen bg-blue-500 flex flex-col items-center justify-center text-white">
             <h1 className="text-4xl font-bold">Welcome to CTF Playground</h1>
             <p className="mt-4">Relax, connect, and enhance your cybersecurity skills!</p>
-            <p className="mt-4">Login/Signup to save completed challenges!</p>
+            <p className="mt-4">Sign up or log in to save completed challenges!</p>
             <div className="mt-6">
                 <Link 
                     to="/playground" 
