@@ -14,7 +14,7 @@ const HomePage = () => {
                 <Link to="/login" className="block mb-4 px-6 py-3 bg-white text-blue-500 font-semibold rounded">
                     Login
                 </Link>
-                <Link to="/signup" className="block px-6 py-3 bg-white text-blue-500 font-semibold rounded">
+                <Link to="/signup" className="block mb-4 px-6 py-3 bg-white text-blue-500 font-semibold rounded">
                     Sign Up
                 </Link>
             </div>
