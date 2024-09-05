@@ -13,9 +13,9 @@ const Navbar = () => {
           {user ? (
             <p className="mr-4">Welcome, {user.username}</p> // Display username
           ) : (
-            <Link to="/login" className="text-lg">Login</Link>
+            <Link to="/login" className="text-lg font-bold mr-6">Log In</Link> // Added margin-right to 'Login'
           )}
-          <Link to="/leaderboard" className="text-1xl font-bold">🏆Leaderboard</Link>
+          <Link to="/leaderboard" className="text-lg font-bold">🏆Leaderboard</Link> 
         </div>
       </div>
     </nav>
