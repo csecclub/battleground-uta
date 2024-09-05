@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebaseconfig';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -40,12 +40,20 @@ const Login = () => {
           required
           className="w-full p-3 mb-4 border rounded text-gray-900"
         />
-        <button
-          type="submit"
-          className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
-        >
-          Login
-        </button>
+        <div className="flex space-x-4">
+          <button
+            type="submit"
+            className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
+          >
+            Login
+          </button>
+          <Link 
+            to="/signup" 
+            className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded text-center hover:bg-blue-600"
+          >
+            Sign Up
+          </Link>
+        </div>
         {error && <p className="mt-4 text-red-500">{error}</p>}
       </form>
     </div>

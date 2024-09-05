@@ -14,18 +14,6 @@ const HomePage = () => {
                 >
                     Start Playing
                 </Link>
-                <Link 
-                    to="/login" 
-                    className="block mb-4 px-6 py-3 bg-white text-blue-500 font-semibold rounded text-center"
-                >
-                    Log In
-                </Link>
-                <Link 
-                    to="/signup" 
-                    className="block mb-4 px-6 py-3 bg-white text-blue-500 font-semibold rounded text-center"
-                >
-                    Sign Up
-                </Link>
             </div>
         </div>
     );
