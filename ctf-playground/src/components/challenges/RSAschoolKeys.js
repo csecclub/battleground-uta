@@ -45,7 +45,7 @@ const RSAschoolKeys = () => {
 
     return (
         <div className="container mx-auto p-5">
-            <h1 className="text-2xl font-bold mb-4">RSA School Keys (HARD)</h1>
+            <h1 className="text-2xl font-bold mb-4">RSA School Keys</h1>
             <p className="mb-4">
                 These numbers from the school library are raising eyebrows. 
                 <br></br> 
@@ -55,7 +55,7 @@ const RSAschoolKeys = () => {
                 <br></br>
                 Could my classmates be up to something mysterious?
             </p>
-            <pre className="bg-gray-100 p-3 rounded mb-4">
+            <pre className="bg-gray-100 p-3 rounded mb-4 break-words whitespace-pre-wrap">
                 {codeSnippet}
             </pre>
             <form onSubmit={handleSubmit}>

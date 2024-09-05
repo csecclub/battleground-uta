@@ -52,7 +52,7 @@ const RSAoffice = () => {
                 <br></br> 
                 (only submit what's in the brackets)
             </p>
-            <pre className="bg-gray-100 p-3 rounded mb-4">
+            <pre className="bg-gray-100 p-3 rounded mb-4 break-words whitespace-pre-wrap">
                 {codeSnippet}
             </pre>
             <form onSubmit={handleSubmit}>
