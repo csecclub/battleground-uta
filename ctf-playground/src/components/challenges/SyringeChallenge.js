@@ -23,8 +23,8 @@ const SyringeChallenge = () => {
             </p>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Username: <input type="text" className="border rounded p-2 w-full" placeholder="admin" readOnly />
-                </label>
+                        Username: <input type="text" className="border rounded p-2 w-full" placeholder="user" readOnly />
+                    </label>
                 <label className="block mb-2">
                     Password: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter password" />
                 </label>
