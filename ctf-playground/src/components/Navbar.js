@@ -8,7 +8,10 @@ const Navbar = () => {
   return (
     <nav className="bg-blue-700 p-4 text-white">
       <div className="container mx-auto flex items-center justify-between">
-        <Link to="/" className="text-2xl font-bold">🛝CTF Playground</Link>
+        {/* Conditionally redirect to PlaygroundPage if the user is logged in */}
+        <Link to={user ? "/playground" : "/"} className="text-2xl font-bold">
+          🛝CTF Playground
+        </Link>
         <div className="flex items-center">
           {user ? (
             <p className="mr-4">Welcome, {user.username}</p> // Display username
