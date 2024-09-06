@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import PlaygroundPage from './pages/PlaygroundPage';
 import ChallengePage from './pages/ChallengePage';
@@ -11,6 +11,36 @@ import Footer from './components/Footer';
 import { auth } from "./firebaseconfig";
 import { onAuthStateChanged } from 'firebase/auth';
 
+// Wrapper component to conditionally show the Navbar
+function Layout({ user }) {
+    const location = useLocation(); // Get current route
+
+    return (
+        <div className="flex flex-col min-h-screen">
+            {/* Conditionally render Navbar if not on home page */}
+            {location.pathname !== '/' && <Navbar user={user} />}
+            <main className="flex-grow">
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route 
+                        path="/playground" 
+                        element={user ? <PlaygroundPage /> : <Navigate to="/login" />} 
+                    />
+                    <Route 
+                        path="/challenge/:category/:id" 
+                        element={user ? <ChallengePage /> : <Navigate to="/login" />} 
+                    />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/signup" element={<SignUpPage />} />
+                    <Route path="/leaderboard" element={<Leaderboard />} />
+                </Routes>
+            </main>
+            {/* Conditionally render Footer if not on home page */}
+            {location.pathname !== '/' && <Footer />}   
+        </div>
+    );
+}
+
 function App() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -21,7 +51,6 @@ function App() {
             setLoading(false);
         });
 
-        // Cleanup subscription on unmount
         return () => unsubscribe();
     }, []);
 
@@ -31,26 +60,7 @@ function App() {
 
     return (
         <Router>
-            <div className="flex flex-col min-h-screen">
-                <Navbar user={user} />
-                <main className="flex-grow">
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route 
-                            path="/playground" 
-                            element={user ? <PlaygroundPage /> : <Navigate to="/login" />} 
-                        />
-                        <Route 
-                            path="/challenge/:category/:id" 
-                            element={user ? <ChallengePage /> : <Navigate to="/login" />} 
-                        />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/signup" element={<SignUpPage />} />
-                        <Route path="/leaderboard" element={<Leaderboard />} />
-                    </Routes>
-                </main>
-                <Footer />
-            </div>
+            <Layout user={user} />
         </Router>
     );
 }
