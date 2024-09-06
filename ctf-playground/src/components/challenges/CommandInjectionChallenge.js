@@ -29,9 +29,9 @@ const CommandInjectionChallenge = () => {
             if (args[1] === 'readme.txt') {
                 response = `Welcome to the challenge! Can you find the hidden secret.py?\n`;
             } else if (args[1] === '.hidden_folder/secret.py') {
-                response = `print("You've found the secret!")\n`;
+                response = `print("You've found the secret!")\n`;           
                 response += `\nCongratulations! You've exploited the vulnerability!\n`;
-                response += `\nYour key is: ${key}\n`;
+                response += `\nYour key is: ${key.answer}\n`;
             } else {
                 response = `cat: ${args[1]}: No such file or directory\n`;
             }
@@ -40,7 +40,7 @@ const CommandInjectionChallenge = () => {
             if (commandLower.includes('cat .hidden_folder/secret.py')) {
                 response = `print("You've found the secret!")\n`;
                 response += `\nCongratulations! You've exploited the vulnerability!\n`;
-                response += `\nYour key is: ${key}\n`;
+                response += `\nYour key is: ${key.answer}\n`;
             } else {
                 response = `Command injection detected but nothing happened.\n`;
             }
@@ -63,7 +63,7 @@ const CommandInjectionChallenge = () => {
             return;
         }
 
-        if (flagInput === key) {
+        if (flagInput === key.answer) {
             await markAsCompleted();
             setFlagVerified(true);
         } else {

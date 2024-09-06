@@ -50,40 +50,34 @@ const useCTFQuestion = (questionId) => {
     try {
       const user = auth.currentUser;
       if (!user) throw new Error('User not authenticated');
-
+  
+      // Fetch current user progress
       const progressRef = doc(db, 'users', user.uid);
       const progressSnap = await getDoc(progressRef);
-
-      if (progressSnap.exists()) {
-        const userData = progressSnap.data();
-        const completedQuestions = userData.completedQuestions || [];
-        if (!completedQuestions.includes(questionId)) {
-          await setDoc(progressRef, {
-            ...userData,
-            completedQuestions: [...completedQuestions, questionId],
-            score: (userData.score || 0) + (question.points || 0)
-          }, { merge: true });
-        }
-      } else {
+  
+      const currentScore = progressSnap.exists() ? (progressSnap.data().score || 0) : 0;
+      const completedQuestions = progressSnap.exists() ? progressSnap.data().completedQuestions || [] : [];
+  
+      // Check if the question is already marked as completed
+      if (!completedQuestions.includes(questionId)) {
+        const newCompletedQuestions = [...completedQuestions, questionId];
+        const newScore = currentScore + (question.points || 0);
+  
+        // Update user progress
         await setDoc(progressRef, {
-          completedQuestions: [questionId],
-          score: question.points || 0
-        });
+          completedQuestions: newCompletedQuestions,
+          score: newScore
+        }, { merge: true });
       }
-
+  
+      // Mark the question as completed in the local state
       setCompleted(true);
-
-      // Update user_scores collection
-      const userScoreRef = doc(db, 'users', user.uid);
-      await setDoc(userScoreRef, {
-        score: (question.points || 0)
-      }, { merge: true });
-
+  
     } catch (err) {
       console.error('Error marking question as completed:', err);
       throw err;
     }
-  };
+  };  
 
   return { question, loading, error, completed, markAsCompleted };
 };
