@@ -9,7 +9,7 @@ import CryptoChallenge from '../components/challenges/CryptoChallenge';
 import WelcomeChallenge from '../components/challenges/WelcomeChallenge';
 import WebExploitationChallenge from '../components/challenges/WebExploitationChallenge';
 import CommandInjectionChallenge from '../components/challenges/CommandInjectionChallenge';
-import SpotDifferenceChallenge from '../components/challenges/SpotDifferenceChallenge';
+import ThePasswordIsPasswordChallenge from '../components/challenges/ThePasswordIsPasswordChallenge';
 import WheresMyFriend from '../components/challenges/WheresMyFriend';
 import AirportCriminal from '../components/challenges/AirportCriminal';
 import RSAschoolKeys from '../components/challenges/RSAschoolKeys';
@@ -59,7 +59,7 @@ const ChallengePage = () => {
             return <CommandInjectionChallenge />;
         }
         if (category === 'forensics' && id === '1') {
-            return <SpotDifferenceChallenge />;
+            return <ThePasswordIsPasswordChallenge />;
         }
         if (category === 'osint' && id === '1') {
             return <WheresMyFriend />;

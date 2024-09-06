@@ -63,7 +63,7 @@ const CommandInjectionChallenge = () => {
             return;
         }
 
-        if (flagInput === key) {
+        if (flagInput === key.answer) {
             await markAsCompleted();
             setFlagVerified(true);
         } else {
