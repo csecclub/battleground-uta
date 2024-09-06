@@ -10,7 +10,7 @@ const HomePage = () => {
             </h1>
             {/* Subheaders for everything else */}
             <p className="mt-4 text-2xl">
-                Welcome to CTF Playground.
+                Welcome to the UTA CSEC CTF Playground.
             </p>
             <p className="mt-4 text-xl">
                 Relax, connect, and enhance your cybersecurity skills!
