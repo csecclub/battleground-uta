@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import useCTFQuestion from '../../hooks/useCTFQuestion';
 
-const SpotDifferenceChallenge = () => {
+const ThePasswordIsPasswordChallenge = () => {
     const [input, setInput] = useState('');
     const [message, setMessage] = useState('');
-    const { question, completed, markAsCompleted } = useCTFQuestion('SpotDifferenceChallenge');
+    const { question, completed, markAsCompleted } = useCTFQuestion('ThePasswordIsPasswordChallenge');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,7 +40,7 @@ const SpotDifferenceChallenge = () => {
 
     return (
         <div className="container mx-auto p-5">
-            <h1 className="text-2xl font-bold mb-4">Spot the Difference: Forensics Challenge</h1>
+            <h1 className="text-2xl font-bold mb-4">The Password is Password: Forensics Challenge</h1>
             <p className="mb-4">
                 In this challenge, you need to analyze a file.
             </p>
@@ -60,4 +60,4 @@ const SpotDifferenceChallenge = () => {
     );
 };
 
-export default SpotDifferenceChallenge;
+export default ThePasswordIsPasswordChallenge;
