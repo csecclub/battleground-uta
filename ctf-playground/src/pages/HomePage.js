@@ -3,31 +3,31 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
-        <div className="h-screen bg-black flex flex-col items-center justify-center text-green-500">
-            {/* Blinking header */}
-            <h1 className="text-6xl font-bold animate-pulse">
-                YOU HAVE BEEN HACKED!
-            </h1>
-            {/* Subheaders for everything else */}
-            <p className="mt-6 text-2xl">
-                Welcome to UTA CTF Playground.
-            </p>
-            <p className="mt-4 text-xl">
-                Relax, connect, and enhance your cybersecurity skills!
-            </p>
-            <p className="mt-4 text-xl">
-                Sign up or log in to save completed challenges!
-            </p>
-            <div className="mt-8">
+        <div className="h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black flex flex-col items-center justify-center overflow-hidden">
+            {/* PS1 Logo */}
+            <div
+                className="w-48 h-48 mb-5 bg-no-repeat bg-contain animate-pulse"
+                style={{ backgroundImage: 'url("cyberkitty.png")' }}
+            ></div>
+
+            {/* PS1-inspired Text */}
+            <h1 className="text-4xl text-white font-bold mb-6 drop-shadow-lg animate-pulse font-ps1">CTF Playground</h1>
+
+            {/* Subheaders */}
+            <p className="mt-4 text-xl text-gray-300 font-ps1">CTF Challanges to make your brain hurt!</p>
+            <p className="mt-4 text-xl text-gray-300 font-ps1">Sign up or log in to save completed challenges!</p>
+            
+            {/* Button */}
+            <div className="mt-8 font-ps1 text-xxl">
                 <Link 
                     to="/login" 
-                    className="block mb-4 px-6 py-3 bg-green-500 text-black font-semibold rounded text-center"
+                    className="block px-8 py-4 bg-blue-600 text-white font-semibold rounded-full text-center hover:bg-blue-700 hover:scale-105 transition-transform duration-300 shadow-lg"
                 >
-                    Start Playing
+                    Start Solving
                 </Link>
             </div>
         </div>
-    );
+    )
 };
 
 export default HomePage;
