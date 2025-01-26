@@ -3,7 +3,7 @@ import { auth, db } from '../firebaseconfig';
 import { doc, getDoc } from 'firebase/firestore';
 
 const useUser = () => {
-  const [user, setUser] = useState(null);
+  const [users, setUser] = useState(null);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
@@ -20,7 +20,7 @@ const useUser = () => {
     return () => unsubscribe();
   }, []);
 
-  return user;
+  return users;
 };
 
 export default useUser;

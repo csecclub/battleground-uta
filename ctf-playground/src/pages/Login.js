@@ -21,16 +21,16 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen bg-blue-500 flex flex-col items-center justify-center text-white">
-      <h1 className="text-4xl font-bold mb-4">Login</h1>
-      <form onSubmit={handleLogin} className="w-full max-w-sm bg-white p-6 rounded-lg shadow-lg">
+    <div className="h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black flex flex-col items-center justify-center">
+      <h1 className="text-4xl font-bold mb-8 text-white drop-shadow-lg font-ps1">Login</h1>
+      <form onSubmit={handleLogin} className="w-full max-w-sm bg-black bg-opacity-70 p-6 rounded-lg shadow-lg font-ps1">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
-          className="w-full p-3 mb-4 border rounded text-gray-900"
+          className="w-full p-3 mb-4 bg-gray-800 border border-gray-600 rounded text-white placeholder-gray-400"
         />
         <input
           type="password"
@@ -38,18 +38,18 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           required
-          className="w-full p-3 mb-4 border rounded text-gray-900"
+          className="w-full p-3 mb-4 bg-gray-800 border border-gray-600 rounded text-white placeholder-gray-400"
         />
         <div className="flex space-x-4">
           <button
             type="submit"
-            className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
+            className="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-300 font-ps1"
           >
             Login
           </button>
           <Link 
             to="/signup" 
-            className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded text-center hover:bg-blue-600"
+            className="w-full px-6 py-3 bg-purple-600 text-white font-semibold rounded text-center hover:bg-purple-700 transition duration-300 font-ps1"
           >
             Sign Up
           </Link>

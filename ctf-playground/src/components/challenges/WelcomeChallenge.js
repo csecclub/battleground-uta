@@ -42,7 +42,7 @@ const WelcomeChallenge = () => {
             </a>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Your Answer: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your answer here" />
+                    Your Answer: <input type="text" className="bg-black border rounded p-2 w-full text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your answer here" />
                 </label>
                 <button type="submit" className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600">
                     Submit

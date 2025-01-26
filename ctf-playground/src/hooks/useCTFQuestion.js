@@ -27,7 +27,7 @@ const useCTFQuestion = (questionId) => {
         }
 
         // Check if user has completed this question
-        const progressRef = doc(db, 'user', user.uid);
+        const progressRef = doc(db, 'users', user.uid);
         const progressSnap = await getDoc(progressRef);
 
         if (progressSnap.exists()) {

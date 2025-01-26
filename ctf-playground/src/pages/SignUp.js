@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { auth, db, serverTimestamp } from '../firebaseconfig';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
@@ -8,6 +9,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -24,23 +26,26 @@ const SignUp = () => {
         completedQuestions: []
       });
 
+      navigate('/playground')
+
       // Redirect to home page or dashboard
     } catch (error) {
       setError(error.message);
+      navigate('/homepage')
     }
   };
 
   return (
-    <div className="h-screen bg-blue-500 flex flex-col items-center justify-center text-white">
+    <div className="h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black flex flex-col items-center justify-center text-white">
       <h1 className="text-4xl font-bold mb-4">Sign Up</h1>
-      <form onSubmit={handleSignUp} className="w-full max-w-sm bg-white p-6 rounded-lg shadow-lg">
+      <form onSubmit={handleSignUp} className="w-full max-w-sm bg-black opacity-70 p-6 rounded-lg shadow-lg">
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
           required
-          className="w-full p-3 mb-4 border rounded text-gray-900"
+          className="w-full p-3 mb-4 border rounded bg-gray-800  border-gray-600  text-white"
         />
         <input
           type="email"
@@ -48,7 +53,7 @@ const SignUp = () => {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
-          className="w-full p-3 mb-4 border rounded text-gray-900"
+          className="w-full p-3 mb-4 border rounded  bg-gray-800 border-gray-600 text-white"
         />
         <input
           type="password"
@@ -56,11 +61,11 @@ const SignUp = () => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           required
-          className="w-full p-3 mb-4 border rounded text-gray-900"
+          className="w-full p-3 mb-4 bg-gray-800 border border-gray-600 rounded text-white"
         />
         <button
           type="submit"
-          className="w-full px-6 py-3 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600"
+          className="w-full px-6 py-3 bg-purple-600 text-white font-semibold rounded hover:bg-purple-800"
         >
           Sign Up
         </button>

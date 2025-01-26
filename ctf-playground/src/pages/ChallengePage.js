@@ -28,12 +28,12 @@ import Trynfindme from '../components/challenges/Trynfindme';
 
 // Challenge lookup object
 const challenges = {
+    'general-skills': { '1': WelcomeChallenge },
     'sql': { '1': SyringeChallenge  },
     'reverse-engineering': { '1': SwapChallenge,  },
     'binary-exploitation': { '1': FileManagerChallenge,},
     'steganography': { '1': Encrypception, '2': StegChallenge, '3': HiddenBit },
-    'crypto': { '1': RSAhackuta, '2': RSAschoolKeys, '3': RSAoffice, '4': HexProtect, '5': CryptoChallenge, },
-    'general-skills': { '1': WelcomeChallenge },
+    'crypto': { '1': CryptoChallenge, '2': HexProtect, '3': RSAoffice, '4': RSAschoolKeys,'5': RSAhackuta, },
     'web-exploitation': { '1': WebExploitationChallenge, },
     'pwn': {'1': VulnerableProgram, '2': PasswordInput },
     'command-injection': { '1': CommandInjectionChallenge, },

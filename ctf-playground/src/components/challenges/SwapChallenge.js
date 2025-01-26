@@ -73,7 +73,7 @@ print(f"The encoded message is: {encoded_message}")
             <p className="mb-4">
                 In this challenge, you'll need to reverse-engineer the provided code to find the hidden logic and determine the correct answer.
             </p>
-            <pre className="bg-gray-100 p-3 rounded mb-4 break-words whitespace-pre-wrap">
+            <pre className="bg-black p-3 rounded mb-4 break-words whitespace-pre-wrap">
                 {codeSnippet}
             </pre>
             <button onClick={downloadCode} className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600 mb-4">
