@@ -16,10 +16,10 @@ function Layout({ user }) {
     const location = useLocation(); // Get current route
 
     return (
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col h-screen w-full bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white"> {/* Added gradient background */}
             {/* Conditionally render Navbar if not on home page */}
             {location.pathname !== '/' && <Navbar user={user} />}
-            <main className="flex-grow">
+            <main className="flex-grow overflow-auto p-4"> {/* Added overflow-auto and padding */}
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route 

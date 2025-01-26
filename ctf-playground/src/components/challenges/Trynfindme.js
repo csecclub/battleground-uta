@@ -51,7 +51,7 @@ const Trynfindme = () => {
             </a>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Your Answer: <input type="text" className="border rounded p-2 w-full bg-black" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your answer here" />
+                    Your Answer: <input type="text" className="border rounded p-2 w-full bg-black text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your answer here" />
                 </label>
                 <button 
                 type="submit" 

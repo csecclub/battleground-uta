@@ -43,7 +43,7 @@ const Encrypception = () => {
             </a>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Answer: <input type="text" className="border rounded p-2 w-full bg-black" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter decoded result" />
+                    Answer: <input type="text" className="border rounded p-2 w-full bg-black text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter decoded result" />
                 </label>
                 <button 
                 type="submit"

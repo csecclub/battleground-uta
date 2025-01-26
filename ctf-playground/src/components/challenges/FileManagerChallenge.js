@@ -50,7 +50,7 @@ const FileManagerChallenge = () => {
             </button>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Exploit Result: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter result of your exploit" />
+                    Exploit Result: <input type="text" className="border rounded p-2 w-full bg-black text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter result of your exploit" />
                 </label>
                 <button type="submit" className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600">
                     Submit

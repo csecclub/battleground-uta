@@ -52,12 +52,12 @@ const RSAoffice = () => {
                 <br></br> 
                 (only submit what's in the brackets)
             </p>
-            <pre className="bg-gray-100 p-3 rounded mb-4 break-words whitespace-pre-wrap">
+            <pre className="bg-black text-white p-3 rounded mb-4 break-words whitespace-pre-wrap">
                 {codeSnippet}
             </pre>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Hidden Logic Result: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter decoded result" />
+                    Hidden Logic Result: <input type="text" className="border rounded p-2 w-full bg-black text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter decoded result" />
                 </label>
                 <button type="submit" className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600">
                     Submit

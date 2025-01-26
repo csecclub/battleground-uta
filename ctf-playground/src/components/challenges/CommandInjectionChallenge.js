@@ -90,7 +90,7 @@ const CommandInjectionChallenge = () => {
                     type="text"
                     value={command}
                     onChange={(e) => setCommand(e.target.value)}
-                    className="flex-grow border rounded p-2"
+                    className="flex-grow border rounded p-2 bg-black text-white"
                     placeholder="Enter command here (e.g., ls, cat readme.txt, ls -a)"
                 />
                 <button type="submit" className="bg-blue-500 text-white p-2 ml-2 rounded">Run</button>
@@ -102,7 +102,7 @@ const CommandInjectionChallenge = () => {
                     type="text"
                     value={flagInput}
                     onChange={(e) => setFlagInput(e.target.value)}
-                    className="border rounded p-2 w-full"
+                    className="border rounded p-2 w-full bg-black text-white"
                     placeholder="Enter your answer here"
                 />
                 <button onClick={handleFlagVerification} className="bg-blue-500 text-white p-2 mt-2 rounded w-full">

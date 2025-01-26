@@ -48,7 +48,7 @@ const ForensicsChallenge = () => {
             </button>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    What did you find?: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your findings here" />
+                    What did you find?: <input type="text" className="border rounded p-2 w-full bg-black text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your findings here" />
                 </label>
                 <button type="submit" className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600">
                     Submit

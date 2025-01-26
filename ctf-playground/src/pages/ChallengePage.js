@@ -48,7 +48,7 @@ const { category, id } = useParams();
 const ChallengeComponent = challenges[category]?.[id];
 
 return (
-    <div className="h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black text-white p-8">
+    <div className="h-screen text-white p-8">
     <div className="container mx-auto bg-black bg-opacity-70 p-6 rounded-lg shadow-lg">
         <h2 className="text-4xl font-bold mb-6 text-center drop-shadow-lg">
         {category ? category.replace(/-/g, ' ').toUpperCase() : 'CHALLENGE'} - {id}

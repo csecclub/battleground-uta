@@ -36,12 +36,12 @@ const CryptoChallenge = () => {
             <p className="mb-4">
                 In this challenge, you need to decrypt the following scrambled message. Use your cryptography skills to find the hidden meaning.
             </p>
-            <p className="bg-gray-100 text-lg p-4 mb-4 rounded">
+            <p className="bg-black text-white text-lg p-4 mb-4 rounded">
                 Encrypted Message: <strong>246283004520049788012437</strong>
             </p>
             <form onSubmit={handleSubmit}>
                 <label className="block mb-2">
-                    Decrypted Message: <input type="text" className="border rounded p-2 w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your decrypted message here" />
+                    Decrypted Message: <input type="text" className="border rounded p-2 w-full bg-black text-white" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter your decrypted message here" />
                 </label>
                 <button type="submit" className="bg-blue-500 text-white rounded p-2 mt-2 hover:bg-blue-600">
                     Submit
