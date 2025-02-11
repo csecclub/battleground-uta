@@ -6,7 +6,7 @@ const CommandInjectionChallenge = () => {
     const [command, setCommand] = useState('');
     const [flagInput, setFlagInput] = useState('');
     const [flagVerified, setFlagVerified] = useState(false);
-    const { key, completed, markAsCompleted } = useCTFQuestion('CommandInjectionChallenge');
+    const { question, completed, markAsCompleted } = useCTFQuestion('CommandInjectionChallenge');
 
     const handleCommand = (e) => {
         e.preventDefault();
@@ -14,16 +14,20 @@ const CommandInjectionChallenge = () => {
         const commandLower = command.toLowerCase();
         let response = '';
 
-        // Directory contents
+        // Directory contents   
         const visibleFiles = `.\n..\nreadme.txt\n`;
-        const hiddenFiles = `.hidden_folder\n`;  // Only show the hidden folder, not the file inside it
+        const hiddenFolder = `.hidden_folder\n`;  // Only show the hidden folder, not the file inside it
+        const hiddenFiles = 'secret.py\n'; // Hidden file inside the hidden folder
 
         // Command simulation logic
         if (commandLower === 'ls') {
             response = visibleFiles; // Only show visible files
         } else if (commandLower === 'ls -a' || commandLower === 'ls -al' || commandLower === 'ls -la' || commandLower === 'ls -lah') {
-            response = visibleFiles + hiddenFiles; // Show visible files + hidden folder
-        } else if (commandLower.startsWith('cat')) {
+            response = visibleFiles + hiddenFolder; // Show visible files + hidden folder
+        } else if (commandLower === 'ls -a .hidden_folder' || commandLower === 'ls .hidden_folder'  ) {
+            response = hiddenFiles; //show hidden file
+        }
+        else if (commandLower.startsWith('cat')) {
             const args = commandLower.split(' ');
 
             if (args[1] === 'readme.txt') {
@@ -31,7 +35,7 @@ const CommandInjectionChallenge = () => {
             } else if (args[1] === '.hidden_folder/secret.py') {
                 response = `print("You've found the secret!")\n`;           
                 response += `\nCongratulations! You've exploited the vulnerability!\n`;
-                response += `\nYour key is: ${key.answer}\n`;
+                response += `\nYour key is: ${question.answer}\n`;
             } else {
                 response = `cat: ${args[1]}: No such file or directory\n`;
             }
@@ -40,7 +44,7 @@ const CommandInjectionChallenge = () => {
             if (commandLower.includes('cat .hidden_folder/secret.py')) {
                 response = `print("You've found the secret!")\n`;
                 response += `\nCongratulations! You've exploited the vulnerability!\n`;
-                response += `\nYour key is: ${key.answer}\n`;
+                response += `\nYour key is: ${question.answer}\n`;
             } else {
                 response = `Command injection detected but nothing happened.\n`;
             }
@@ -53,17 +57,17 @@ const CommandInjectionChallenge = () => {
     };
 
     const handleFlagVerification = async () => {
-        if (!key) {
-            setOutput('Error: Question data is not available. Please try again later.');
+        if (!question) {
+            setOutput(['Error: Question data is not available. Please try again later.']);
             return;
         }
-
+    
         if (completed) {
-            setOutput('You have already completed this question.');
+            setOutput(['You have already completed this question.']);
             return;
         }
-
-        if (flagInput === key.answer) {
+    
+        if (flagInput === question.answer) {
             await markAsCompleted();
             setFlagVerified(true);
         } else {
@@ -80,7 +84,7 @@ const CommandInjectionChallenge = () => {
 
             <div className="bg-black text-green-500 font-mono p-4 rounded mb-4" style={{ minHeight: '200px', maxHeight: '300px', overflowY: 'auto' }}>
                 {output.map((line, index) => (
-                    <div key={index}>{line}</div>
+                    <div question={index}>{line}</div>
                 ))}
             </div>
 
