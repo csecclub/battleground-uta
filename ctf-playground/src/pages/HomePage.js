@@ -1,7 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+
+    const [flag, setFlag] = useState(null);
+
+    useEffect(() => {
+        // Fetch the flag.js file
+        const script = document.createElement('script');
+        script.src = '/flag.js';
+        script.async = true;
+        script.onload = () => {
+            if (window.flag) {
+                setFlag(window.flag);
+            }
+        };
+        document.body.appendChild(script);
+
+        // Clean up
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+
     return (
         <div className="h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-black flex flex-col items-center justify-center overflow-hidden">
             {/* PS1 Logo */}
@@ -26,6 +47,15 @@ const HomePage = () => {
                     Start Solving
                 </Link>
             </div>
+
+            {/* Hidden Flag */}
+            {flag && (
+                <div style={{ display: 'none' }}>
+                    {/* This will be visible in the network tab but not on the page */}
+                    <p>{flag}</p>
+                </div>
+            )}
+
         </div>
     )
 };
